@@ -1,0 +1,261 @@
+/* public/css/style.css */
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Ensure Poppins font is imported/available. You'd typically link this in your Blade template's <head> */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hero Section - Main Background */
+.hero {
+    width: 100%;
+    min-height: 120vh; /* Increased height to accommodate content and card */
+    background-image: url('../images/f.jpeg'); /* Correct path relative to CSS file */
+    background-position: center;
+    background-size: cover;
+    padding: 5px 5% 30px 3%; /* Adjust padding as needed */
+    overflow: hidden; /* Important for absolute positioning children */
+    position: relative; /* Essential for positioning children absolutely within it */
+}
+
+/* Hero Background Card - The large transparent overlay */
+.hero-bg-card {
+    position: absolute;
+    /* Adjust these values to position the card relative to the .hero container */
+    /* These values seem to create a large overlay that's off-center, covering most of the screen.
+       You might need to fine-tune based on your specific design. */
+    left: -323px;
+    top: -133px;
+    width: 1800px; /* Large width to cover a wide area */
+    height: 1000px; /* Large height */
+    background: rgba(20, 20, 30, 0.50); /* Darker transparent background */
+    border-radius: 30px;
+    z-index: 0; /* Ensure it's behind content but above the hero background */
+}
+
+/* Image Feature - Specific image positioned absolutely */
+.image-feature {
+    position: absolute;
+    /* These positions are absolute relative to the nearest positioned ancestor (which would be .hero) */
+    /* These values suggest positioning it towards the right side of a large screen */
+    left: 1200px;
+    top: 180px;
+    width: 572px;
+    height: 535px;
+    object-fit: cover; /* Ensures the image covers the element while maintaining aspect ratio */
+    display: block;
+    z-index: 1; /* Ensure it's above the hero-bg-card */
+}
+
+/* Navigation Styles */
+nav {
+    font-size: 25px; /* This will affect logo if it's text-based, consider separately for links */
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* Keep it relative or absolute if needed to layer above hero-bg-card */
+    z-index: 2; /* Ensure nav is above hero-bg-card */
+}
+
+.logo {
+    width: 100px; /* Adjust as needed for your logo image */
+    height: 100px; /* Adjust as needed */
+    object-fit: contain; /* Ensures logo fits without cropping */
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 2px 15px 10px 15px;
+    text-shadow: 0 4px 4px rgba(0,0,0,0.18);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff !important; /* !important might be needed if other styles override */
+    font-weight: 400;
+    transition: color 0.3s;
+    text-shadow: 0 4px 4px rgba(0,0,0,0.18);
+    position: relative;
+    padding-bottom: 4px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 0;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: calc(100% - 20px);
+}
+
+nav ul li a:hover {
+    color: #fff !important;
+}
+
+/* Adjust nav img if it's separate from .logo */
+/* nav img {
+    width: 80px;
+    height: 150px;
+} */
+
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 40px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #639E33, #4e7a26);
+    font-size: 14px;
+    border-radius: 30px;
+    transition: 0.5s;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.18);
+    z-index: 2; /* Ensure button is above hero-bg-card */
+}
+
+.btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px rgba(223, 72, 129, 0.2); /* Adjust shadow color if needed */
+}
+
+.btn-signup {
+    position: relative; /* If you want to layer it specifically */
+    z-index: 2; /* Ensure it's above other elements */
+}
+
+
+/* Content Section - Main Text Block */
+.content {
+    margin-top: 10%; /* Adjust top margin to position content */
+    max-width: 700px; /* Controls the width of the text block */
+    text-shadow: 0 4px 4px rgba(0,0,0,0.18);
+    position: relative; /* Needed if you want to apply z-index or other positioning */
+    z-index: 1; /* Ensure content is above hero-bg-card */
+    padding-left: 3%; /* Matches .hero's padding-left for consistent left alignment */
+}
+
+.content h1 {
+    font-size: 55px;
+    color: #fff;
+}
+
+.content p {
+    margin: 10px 0 30px;
+    color: #fff;
+}
+
+.content .btn {
+    padding: 15px 80px;
+    font-size: 16px;
+}
+
+/* This class seems redundant if content is handled by .content p */
+/* .content_p {
+    margin-top: 0%;
+    position: relative;
+    z-index: 1;
+} */
+
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+    .hero {
+        min-height: 100vh;
+        padding: 5px 2% 10px 2%;
+    }
+    /* Adjust image-feature for smaller screens if it becomes problematic */
+    .image-feature {
+        left: unset; /* Remove fixed left position */
+        right: 5%; /* Position from the right */
+        top: 200px; /* Adjust top */
+        width: 400px; /* Smaller width */
+        height: 375px; /* Smaller height */
+    }
+}
+
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 2%;
+    }
+    .btn-signup {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .content {
+        margin-top: 18%;
+        max-width: 95vw;
+        padding-left: 2%; /* Matches hero padding */
+    }
+    /* hero-bg-card for medium screens */
+    .hero-bg-card {
+        left: -80px; /* Adjust left position */
+        top: -80px; /* Adjust top position */
+        width: 95vw; /* Adjust width to be relative to viewport */
+        height: 400px; /* Adjust height */
+    }
+    /* Hide image feature on smaller screens if it overlaps or is too large */
+    .image-feature {
+        display: none; /* Hide for tablets/smaller desktops */
+    }
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+    }
+    nav ul li {
+        margin: 15px 0;
+        display: block;
+    }
+    .logo {
+        width: 80px;
+        height: auto;
+    }
+    .content h1 {
+        font-size: 2rem;
+        word-break: break-word;
+    }
+    .content {
+        margin-top: 22%;
+        padding: 0 5vw; /* Use vw for padding on very small screens */
+        max-width: 100vw;
+    }
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+    /* hero-bg-card for mobile screens */
+    .hero-bg-card {
+        left: -30px;
+        top: -30px;
+        width: 110vw; /* Make it slightly wider to bleed off the screen */
+        height: 250px;
+        border-radius: 20px;
+    }
+    /* Ensure image-feature remains hidden or appropriately handled */
+    .image-feature {
+        display: none;
+    }
+}
