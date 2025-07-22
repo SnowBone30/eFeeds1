@@ -24,3 +24,6 @@ Route::get('/dashboard', function () {
 Route::get('/inventory', function () {
     return view('inventory');
 });
+Route::get('/reports', function () {
+    return view('reports');
+});
