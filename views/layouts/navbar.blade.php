@@ -6,16 +6,16 @@
     <title>@yield('title', 'eFeeds Go')</title>
     
     <!-- Base CSS files -->
-    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
     
     <!-- Page-specific CSS -->
     @stack('styles')
 </head>
 <body>
-    <div class="container">
-        @include('layouts.sidebar')
+    <div class="hero">
+        @include('layouts.navbar_child')
         
-        <div class="main-content">
+        <div class="content">
             @yield('content')
         </div>
     </div>

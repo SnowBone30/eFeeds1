@@ -34,7 +34,7 @@
                     <input type="password" placeholder="Enter Password">
                     <i class="fas fa-lock icon"></i>
                 </div>
-                <button type="submit" class="login-button">Login</button>
+                <a href="{{ url('/welcome') }}" class="login-button">Login</a>
             </form>
 
         </div>

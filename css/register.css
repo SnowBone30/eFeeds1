@@ -38,7 +38,7 @@ body, html {
      background: rgba(20, 20, 30, 0.50);
     text-align: center;
     width: 90%; /* Responsive width */
-    height: 50%; /* Adjusted height for better layout */
+    height: 70%; /* Adjusted height for better layout */
     max-width: 450px; /* Max width for larger screens */
 }
 
@@ -120,16 +120,18 @@ body, html {
     color: #fff;
     border: none;
     border-radius: 30px;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none !important;
 }
 
 .login-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    text-decoration: none !important;
 }
 
 /* Sign up link */

@@ -14,6 +14,44 @@
 
     {{-- Custom Login CSS --}}
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+
+    <style>
+        /* Smooth Page Load Transition */
+        .login-page-container {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Login card smooth entrance */
+        .login-card {
+            animation: slideIn 0.6s ease-out 0.2s both;
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="login-page-container">
@@ -35,11 +73,13 @@
                     <i class="fas fa-lock icon"></i>
                     <input type="password" placeholder="Enter Password">
                 </div>
-                <button type="submit" class="login-button" >Login</button>
+                <button type="submit" class="login-button">Login</button>
             </form>
 
             <p class="signup-link">Don't have account? <a href="{{ url('register') }}">Sign Up</a></p>
         </div>
     </div>
+
+
 </body>
 </html>
